@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAFIZ XD - FF Tournament</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      color: white;
+      background: #0e0e12;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(14, 14, 20, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #3ae6ff, #ff6ec4, #8aff8a, #ffd93a, #3ae6ff);
+      background-size: 300% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorChange 6s linear infinite;
+    }
+    @keyframes colorChange {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .navbar .actions {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .navbar button {
+      background: #1f1f2e;
+      border: 1px solid #3ae6ff;
+      color: #3ae6ff;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    .navbar button:hover {
+      background: #3ae6ff;
+      color: #0e0e12;
+    }
+    .container {
+      text-align: center;
+      padding: 5rem 1rem 4rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #3ae6ff;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      color: #c7c7d3;
+    }
+    .rules {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 0 25px rgba(58, 230, 255, 0.1);
+    }
+    .rules h2 {
+      margin-bottom: 1rem;
+      color: #3ae6ff;
+      font-size: 1.5rem;
+    }
+    .rules ul {
+      list-style: none;
+      text-align: left;
+    }
+    .rules ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+      color: #dcdcdc;
+    }
+    .rules ul li::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: #3ae6ff;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      .navbar .actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar button {
+        width: 100%;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="navbar">
+    <div class="logo">XD</div>
+    <div class="actions">
+      <button onclick="location.href='form.html'">Apply for Match</button>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Where Legends Rise, And Only the Brave Survive.</h1>
+    <p>Welcome to the battlefield where elite warriors face off in a battle of precision, strategy, and survival. Step into the fire. Only the strongest will claim victory.</p>
+    <div class="rules">
+      <h2>📜 Tournament Rules</h2>
+      <ul>
+        <li>No use of emulators.</li>
+        <li>Only registered players can join the tournament.</li>
+        <li>No use of third-party software or cheats.</li>
+        <li>Be respectful to all players and staff.</li>
+        <li>Matches will be played in squad mode.</li>
+        <li>Final decisions rest with the admins.</li>
+        <li>Match timing must be strictly followed.</li>
+        <li>Ping issues are not the responsibility of organizers.</li>
+        <li>Top 3 teams will be rewarded with prizes.</li>
+        <li>Stream sniping is strictly prohibited.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Check if user ID already exists
+    let userId = localStorage.getItem("userId");
+
+    if (!userId) {
+      // Generate a new user ID
+      userId = 'user-' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem("userId", userId);
+      console.log("New user detected. ID:", userId);
+    } else {
+      console.log("Returning user:", userId);
+    }
+
+    // You can use this userId to autofill forms or customize experience
+  </script>
+
+  <script>
+    // JavaScript Unique Particle Background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    const colors = ['#3ae6ff', '#1f8fff', '#77ffee'];
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 0.4 - 0.2;
+        this.speedY = Math.random() * 0.4 - 0.2;
+        this.alpha = Math.random() * 0.5 + 0.3;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color + Math.floor(this.alpha * 255).toString(16);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let particle of particles) {
+        particle.update();
+        particle.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    });
+  </script>
+</body>
+</html>

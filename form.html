@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Match - NAFIZ XD Tournament</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      color: white;
+      background: #0e0e12;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      background: linear-gradient(45deg, #3ae6ff, #ff6ec4, #3ae6ff);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorChange 5s ease infinite;
+    }
+    @keyframes colorChange {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #3ae6ff;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #3ae6ff;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 25px rgba(58, 230, 255, 0.1);
+    }
+    .form-container label {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #dcdcdc;
+      display: block;
+    }
+    .form-container input, .form-container button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #3ae6ff;
+      background: #1f1f2e;
+      color: #3ae6ff;
+      font-size: 1rem;
+    }
+    .form-container input[type="file"] {
+      padding: 0.5rem;
+    }
+    .form-container button {
+      background: #3ae6ff;
+      color: #0e0e12;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .form-container button:hover {
+      background: #1f8fff;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .form-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar with XD Logo on the left -->
+  <div class="navbar">
+    <div class="logo">XD</div>
+  </div>
+
+  <!-- Main Content -->
+  <h1>Apply for the Tournament</h1>
+  <div class="form-container">
+    <form id="applyForm">
+      <label for="teamName">Team Name:</label>
+      <input type="text" id="teamName" name="teamName" required />
+
+      <label for="player1">Player 1 Name:</label>
+      <input type="text" id="player1" name="player1" required />
+
+      <label for="player2">Player 2 Name:</label>
+      <input type="text" id="player2" name="player2" required />
+
+      <label for="player3">Player 3 Name:</label>
+      <input type="text" id="player3" name="player3" required />
+
+      <label for="player4">Player 4 Name:</label>
+      <input type="text" id="player4" name="player4" required />
+
+      <label for="screenshot">Attach Screenshot:</label>
+      <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
+
+      <button type="submit">Apply for Match</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('applyForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Your application has been submitted!');
+      // You can add further form processing here (e.g., sending data to a server)
+    });
+  </script>
+</body>
+</html>
