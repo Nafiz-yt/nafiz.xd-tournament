@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOURNAMENT XD - Free Fire Gaming Tournament</title>
+<meta name="description" content="Join TOURNAMENT XD for daily Free Fire battles, win prizes, and dominate the leaderboard!">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: #fff; }
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 15px 20px;
+      background: linear-gradient(45deg, #1a1a2e, #162447);
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    nav h1 {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    nav h1 img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav ul { display: flex; gap: 20px; }
+    nav ul li {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+    nav ul li:hover {
+      color: #ff9800;
+      transform: scale(1.1);
+    }
+    nav ul li:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .banner {
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .banner h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .banner p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+    .banner .btn {
+      padding: 15px 30px;
+      background-color: #ff5722;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .banner .btn:hover {
+      background-color: #ff784e;
+    }
+    .info {
+      padding: 80px 20px;
+      background: #1e1e1e;
+      text-align: center;
+    }
+    .info h2 {
+      font-size: 2.5rem;
+      color: #ff5722;
+      margin-bottom: 20px;
+    }
+    .info p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .info .rules {
+      background: #333;
+      padding: 30px 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .info .rules ul {
+      text-align: left;
+      list-style: disc;
+    }
+    .info .rules ul li {
+      margin-bottom: 15px;
+    }
+    .whatsapp {
+      text-align: center;
+      margin: 50px auto;
+    }
+    .whatsapp a {
+      background: #25D366;
+      padding: 12px 20px;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .whatsapp a:hover {
+      background: #1ebe5d;
+    }
+    footer {
+      background: #121212;
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 1rem;
+    }
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <nav>
+    <h1><img src="logo.png" alt="Logo">TOURNAMENT XD</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="https://chat.whatsapp.com/JlxrJnsLDpsErQXvJpt86j">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="banner" id="home">
+    <div class="banner-content">
+      <h2>Welcome to TOURNAMENT XD</h2>
+      <p>Join the ultimate Free Fire Tournament and fight for glory!</p>
+      <a href="https://forms.gle/KdSbyuPgS6daBjih6" class="btn">Register Now</a>
+    </div>
+  </section>
+  <section class="info" id="about">
+    <h2>About NAFIZ XD</h2>
+    <p>NAFIZ XD hosts thrilling daily Free Fire tournaments where players battle for glory, rewards, and recognition. Join now and be a part of the action!</p>
+  </section>
+  <section class="info" id="rules">
+    <h2>Tournament Rules</h2>
+    <div class="rules">
+      <ul>
+        <li>Only mobile players allowed – no emulators.</li>
+        <li>No cheating, hacking, or third-party tools.</li>
+        <li>Be respectful to everyone – toxicity is not tolerated.</li>
+        <li>Join on time – late entries will not be accepted.</li>
+        <li>Payments will be processed via trusted mobile wallets.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="whatsapp">
+    <a href="https://chat.whatsapp.com/JlxrJnsLDpsErQXvJpt86j">Join Our WhatsApp Group</a>
+  </section>
+  <footer>
+    <p>Made with ❤️ | All rights reserved &copy; 2025 Nꫝ𝙵𝙸𝚉 XD</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ff5722" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 5,
+          random: true,
+          anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ff5722",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          attract: { enable: false }
+        }
+      },
+      interactivity: {
+        detect_on: "window",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
